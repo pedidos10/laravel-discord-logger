@@ -27,6 +27,8 @@ class SimpleRecordConverter extends AbstractRecordConverter
         $emoji = $this->getRecordEmoji($record);
 
         $message->content($emoji === null ? "`$content`" : "$emoji `$content`");
+
+        $message->content( $record['message'] . "\n\n`" . json_encode($record['context']) . '`' );        
     }
 
     /**
